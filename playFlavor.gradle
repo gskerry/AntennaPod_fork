@@ -3,6 +3,8 @@ android {
     productFlavors {
         free {
             dimension "market"
+            // Install alongside the Play Store build (de.danoeh.antennapod); freeRelease is de.danoeh.antennapod.free
+            applicationIdSuffix ".free"
         }
         play {
             dimension "market"

@@ -36,13 +36,30 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix ".debug"
-            resValue "string", "provider_authority", "de.danoeh.antennapod.debug.provider"
         }
         release {
-            resValue "string", "provider_authority", "de.danoeh.antennapod.provider"
             minifyEnabled true
             shrinkResources true
             signingConfig signingConfigs.releaseConfig
+        }
+    }
+
+    // Provider authority must match the variant applicationId (see playFlavor.gradle free suffix).
+    applicationVariants.configureEach { variant ->
+        def isFree = variant.productFlavors.any { it.name == "free" }
+        def isDebug = variant.buildType.name == "debug"
+        if (isDebug) {
+            if (isFree) {
+                variant.resValue "string", "provider_authority", "de.danoeh.antennapod.free.debug.provider"
+            } else {
+                variant.resValue "string", "provider_authority", "de.danoeh.antennapod.debug.provider"
+            }
+        } else {
+            if (isFree) {
+                variant.resValue "string", "provider_authority", "de.danoeh.antennapod.free.provider"
+            } else {
+                variant.resValue "string", "provider_authority", "de.danoeh.antennapod.provider"
+            }
         }
     }
 
