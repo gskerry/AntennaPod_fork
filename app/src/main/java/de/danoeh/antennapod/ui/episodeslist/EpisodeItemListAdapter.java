@@ -80,7 +80,7 @@ public class EpisodeItemListAdapter extends SelectableAdapter<EpisodeItemViewHol
 
         // Reset state of recycled views
         holder.coverHolder.setVisibility(View.VISIBLE);
-        holder.dragHandle.setVisibility(View.GONE);
+        holder.queueReorderControls.setVisibility(View.GONE);
 
         beforeBindViewHolder(holder, pos);
 
@@ -145,6 +145,28 @@ public class EpisodeItemListAdapter extends SelectableAdapter<EpisodeItemViewHol
     protected void afterBindViewHolder(EpisodeItemViewHolder holder, int pos) {
     }
 
+    /**
+     * Moves the item at {@code pos} to the start of the list. Used by the queue screen reorder buttons.
+     */
+    protected void moveQueueItemToTopInEpisodeList(int pos) {
+        if (pos <= 0 || pos >= episodes.size()) {
+            return;
+        }
+        episodes.add(0, episodes.remove(pos));
+        notifyItemMoved(pos, 0);
+    }
+
+    /**
+     * Moves the item at {@code pos} to the end of the list. Used by the queue screen reorder buttons.
+     */
+    protected void moveQueueItemToBottomInEpisodeList(int pos) {
+        if (pos < 0 || pos >= episodes.size() - 1) {
+            return;
+        }
+        episodes.add(episodes.remove(pos));
+        notifyItemMoved(pos, episodes.size() - 1);
+    }
+
     @Override
     public void onViewRecycled(@NonNull EpisodeItemViewHolder holder) {
         super.onViewRecycled(holder);
@@ -157,6 +179,8 @@ public class EpisodeItemListAdapter extends SelectableAdapter<EpisodeItemViewHol
         holder.secondaryActionButton.setOnClickListener(null);
         holder.dragHandle.setOnTouchListener(null);
         holder.coverHolder.setOnTouchListener(null);
+        holder.queueReorderUp.setOnClickListener(null);
+        holder.queueReorderDown.setOnClickListener(null);
     }
 
     /**

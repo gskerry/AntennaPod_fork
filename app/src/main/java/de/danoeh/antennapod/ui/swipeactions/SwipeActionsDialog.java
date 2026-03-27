@@ -191,6 +191,7 @@ public class SwipeActionsDialog {
     private void populateMockEpisode(FeeditemlistItemBinding view) {
         view.container.setAlpha(0.3f);
         view.secondaryActionButton.secondaryActionButton.setVisibility(View.GONE);
+        view.queueReorderControls.setVisibility(View.GONE);
         view.dragHandle.setVisibility(View.GONE);
         view.statusInbox.setVisibility(View.GONE);
         view.txtvTitle.setText("███████");

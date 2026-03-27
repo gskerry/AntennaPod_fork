@@ -26,17 +26,55 @@
             android:id="@+id/left_padding"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:minWidth="4dp">
+            android:minWidth="4dp"
+            android:gravity="center_vertical">
 
-            <ImageView
-                android:id="@+id/drag_handle"
-                android:layout_width="16dp"
-                android:layout_height="match_parent"
-                android:importantForAccessibility="no"
-                android:scaleType="fitCenter"
-                android:paddingStart="0dp"
-                android:paddingEnd="4dp"
-                app:srcCompat="?attr/dragview_background" />
+            <LinearLayout
+                android:id="@+id/queue_reorder_controls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/queue_reorder_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:minWidth="36dp"
+                    android:minHeight="36dp"
+                    android:padding="2dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/move_to_top_label"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/ic_arrow_full_up" />
+
+                <ImageView
+                    android:id="@+id/drag_handle"
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:importantForAccessibility="no"
+                    android:minHeight="28dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="4dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="?attr/dragview_background" />
+
+                <ImageButton
+                    android:id="@+id/queue_reorder_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:minWidth="36dp"
+                    android:minHeight="36dp"
+                    android:padding="2dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/move_to_bottom_label"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/ic_arrow_full_down" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

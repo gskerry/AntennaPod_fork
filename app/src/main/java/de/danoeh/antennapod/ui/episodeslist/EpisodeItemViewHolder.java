@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -43,6 +44,9 @@ public class EpisodeItemViewHolder extends RecyclerView.ViewHolder {
     private static final String TAG = "EpisodeItemViewHolder";
 
     private final View container;
+    public final ViewGroup queueReorderControls;
+    public final ImageButton queueReorderUp;
+    public final ImageButton queueReorderDown;
     public final ImageView dragHandle;
     public final TextView placeholder;
     public final ImageView cover;
@@ -70,6 +74,9 @@ public class EpisodeItemViewHolder extends RecyclerView.ViewHolder {
         super(LayoutInflater.from(activity).inflate(R.layout.feeditemlist_item, parent, false));
         this.activity = activity;
         container = itemView.findViewById(R.id.container);
+        queueReorderControls = itemView.findViewById(R.id.queue_reorder_controls);
+        queueReorderUp = itemView.findViewById(R.id.queue_reorder_up);
+        queueReorderDown = itemView.findViewById(R.id.queue_reorder_down);
         dragHandle = itemView.findViewById(R.id.drag_handle);
         placeholder = itemView.findViewById(R.id.txtvPlaceholder);
         cover = itemView.findViewById(R.id.imgvCover);
@@ -219,7 +226,7 @@ public class EpisodeItemViewHolder extends RecyclerView.ViewHolder {
         secondaryActionProgress.setIndeterminate(false);
         progressBar.setVisibility(View.GONE);
         position.setVisibility(View.GONE);
-        dragHandle.setVisibility(View.GONE);
+        queueReorderControls.setVisibility(View.GONE);
         size.setText("");
         itemView.setBackgroundResource(ThemeUtils.getDrawableFromAttr(activity, R.attr.selectableItemBackground));
         placeholder.setText("");
