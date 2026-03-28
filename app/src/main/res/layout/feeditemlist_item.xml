@@ -31,31 +31,31 @@
 
             <LinearLayout
                 android:id="@+id/queue_reorder_controls"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/queue_reorder_arrow_button_size"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:gravity="center_horizontal"
                 android:visibility="gone">
 
                 <ImageButton
                     android:id="@+id/queue_reorder_up"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/queue_reorder_arrow_button_size"
+                    android:layout_height="@dimen/queue_reorder_arrow_button_size"
                     android:layout_gravity="center_horizontal"
-                    android:minWidth="36dp"
-                    android:minHeight="36dp"
-                    android:padding="2dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="@dimen/queue_reorder_arrow_button_padding"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/move_to_top_label"
-                    android:scaleType="fitCenter"
+                    android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_arrow_full_up" />
 
                 <ImageView
                     android:id="@+id/drag_handle"
                     android:layout_width="16dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/queue_drag_handle_height"
                     android:layout_gravity="center_horizontal"
                     android:importantForAccessibility="no"
-                    android:minHeight="28dp"
                     android:paddingStart="0dp"
                     android:paddingEnd="4dp"
                     android:scaleType="fitCenter"
@@ -63,15 +63,15 @@
 
                 <ImageButton
                     android:id="@+id/queue_reorder_down"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/queue_reorder_arrow_button_size"
+                    android:layout_height="@dimen/queue_reorder_arrow_button_size"
                     android:layout_gravity="center_horizontal"
-                    android:minWidth="36dp"
-                    android:minHeight="36dp"
-                    android:padding="2dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="@dimen/queue_reorder_arrow_button_padding"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/move_to_bottom_label"
-                    android:scaleType="fitCenter"
+                    android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_arrow_full_down" />
 
             </LinearLayout>

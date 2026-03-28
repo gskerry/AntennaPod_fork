@@ -4,4 +4,11 @@
     <!-- Should match with @dimen/m3_navigation_drawer_layout_corner_size -->
     <dimen name="drawer_corner_size">16dp</dimen>
     <dimen name="floating_select_menu_height">112dp</dimen>
+
+    <!-- Queue reorder arrows: fixed bounds so vectors do not rely on wrap_content + intrinsic size
+         (theme vectors / path bounds caused sporadically tiny icons, especially the down arrow). -->
+    <dimen name="queue_reorder_arrow_button_size">36dp</dimen>
+    <dimen name="queue_reorder_arrow_button_padding">6dp</dimen>
+    <!-- Drag handle drawable is 20×30dp intrinsic at 16dp width → 24dp height (stable vs wrap_content). -->
+    <dimen name="queue_drag_handle_height">24dp</dimen>
 </resources>
